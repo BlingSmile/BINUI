@@ -2,7 +2,7 @@
  * @Author: BlingBling 
  * @Date: 2018-06-01 18:55:46 
  * @Last Modified by: BlingBling
- * @Last Modified time: 2018-06-02 12:07:06
+ * @Last Modified time: 2018-06-02 12:27:27
  * 原型链学习— --- DOM操作
  * 模拟jquery的选择器
  */
@@ -16,7 +16,10 @@
      * 解析标签
      */
     Bquery.fn.prototype = {
+        constructor:Bquery,
         init: (selecter, context) => {
+            selecter = selecter || document;
+            context = context || document;
             if (!selecter) {
                 return this;
             } else if (typeof selecter === "string") {
@@ -50,7 +53,7 @@
             }
         },
         length: 0,
-        size: () => {
+        size: function(){
             return length;
         },
         bquery: "0.1.1"
